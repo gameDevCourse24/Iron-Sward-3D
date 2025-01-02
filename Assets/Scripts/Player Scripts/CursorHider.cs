@@ -7,6 +7,7 @@ using UnityEngine.InputSystem;
  */
 public class CursorHider : MonoBehaviour {
     [SerializeField] InputAction toggleCursorAction;
+
     void OnEnable() { toggleCursorAction.Enable(); }
     void OnDisable() { toggleCursorAction.Disable(); }
     void OnValidate() {
@@ -15,24 +16,30 @@ public class CursorHider : MonoBehaviour {
         if (toggleCursorAction == null)
             toggleCursorAction = new InputAction(type: InputActionType.Button);
         if (toggleCursorAction.bindings.Count == 0)
-            toggleCursorAction.AddBinding("<Mouse>/leftButton");
+            toggleCursorAction.AddBinding("<Keyboard>/escape");
     }
 
 
     void Start() {
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
+        HideCursor();
     }
 
     void Update() {
         if (toggleCursorAction.WasPerformedThisFrame()) {
             if (!Cursor.visible) {
-                Cursor.visible = true;
-                Cursor.lockState = CursorLockMode.None;
+                ShowCursor();
             } else {
-                Cursor.visible = false;
-                Cursor.lockState = CursorLockMode.Locked;
+                HideCursor();
             }
         }
+    }
+    private void ShowCursor() {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+    }
+
+    private void HideCursor() {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 }
