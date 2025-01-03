@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-public class ClickSpawner : MonoBehaviour
+public class BulletClickSpawner : MonoBehaviour
 {
     [SerializeField]
     private GameObject spawnObject;
