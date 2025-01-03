@@ -1,7 +1,7 @@
 # שם המשחק: חרבות ברזל (Iron Swords)
 
 משחק מחשב שמתאר לחימה באזורים שונים בעזה מצד לוחם בצבא הגנה לישראל מול כוחות הרשע "חמאס".  
-[למשחק](https://gamedevrel2024shovhalyon.itch.io/ironswords)  
+[למשחק](https://gamedevrel2024shovhalyon.itch.io/ironsward3d)  
 
 ## מהות המשחק
 
@@ -10,10 +10,4 @@
 ## פלטפורמות
 
 המשחק מיועד לפלטפורמות המחשב האישי ובהמשך יפותח גם לקונסולות.
-
-## מסך דמיון
-
-![iron swords pic](Images/ironswardpic.png)
-
-https://gamedevrel2024shovhalyon.itch.io/ironswords קישור:
 ---
