@@ -3,10 +3,10 @@ using UnityEngine;
 public class RandomTimedSpawner : TimedSpawner
 {
     [SerializeField, Tooltip("Minimum spawn interval")]
-    private float minInterval = 2f;
+    private float minInterval = 30f;
 
     [SerializeField, Tooltip("Maximum spawn interval")]
-    private float maxInterval = 10f;
+    private float maxInterval = 90f;
 
     private void Start()
     {

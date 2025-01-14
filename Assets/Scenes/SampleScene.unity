@@ -41413,6 +41413,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textComponent: {fileID: 1014637395}
   DataToAdd: 25
+  destroyObjectTags:
+  - Player
 --- !u!114 &2011813258
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44876,6 +44878,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 217362010244699898, guid: 6130ac6f8747d9442838fe55e62389cb, type: 3}
+      propertyPath: maxInterval
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 217362010244699898, guid: 6130ac6f8747d9442838fe55e62389cb, type: 3}
+      propertyPath: minInterval
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 217362010244699898, guid: 6130ac6f8747d9442838fe55e62389cb, type: 3}
       propertyPath: objectFolder
       value: 
       objectReference: {fileID: 389377223}
@@ -44925,7 +44935,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2424396257602323702, guid: 6130ac6f8747d9442838fe55e62389cb, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

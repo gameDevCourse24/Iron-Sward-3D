@@ -1,14 +1,16 @@
 using UnityEngine;
+using System.Linq;
 using TMPro;
 
-public class ChangeDataOnCollision : MonoBehaviour
+public class ChangeDataOnTrigger : MonoBehaviour
 {
     [SerializeField, Tooltip("Drag the TMP_Text component from your Canvas here.")]
     private TMP_Text textComponent;
     [SerializeField, Tooltip("How much to add to the data? (If you want to reduce - add a minus before the number)")]
     private float DataToAdd = 1;
+    [SerializeField, Tooltip("The tags that will trigger the text change")]
+    private string[] destroyObjectTags;
 
-    // פונקציה שממירה את הטקסט למספר, מוסיפה את הנתון ומעדכנת את הטקסט
     private void Change()
     {
         if (float.TryParse(textComponent.text, out float currentData))
@@ -22,16 +24,19 @@ public class ChangeDataOnCollision : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (textComponent != null)
+        if (textComponent == null || destroyObjectTags.Length == 0)
         {
-            Change();
-            Debug.Log($"Text updated: Collided with {collision.gameObject.name}");
+            Debug.LogWarning("In the inspector: TMP_Text component is not assigned or there are no tags in the array.");
         }
         else
         {
-            Debug.LogWarning("TMP_Text component is not assigned!");
+            if (destroyObjectTags.Contains(other.gameObject.tag))
+            {
+                Change();
+                Debug.Log($"Text updated: Triggered by {other.gameObject.name}");
+            }
         }
     }
 }
