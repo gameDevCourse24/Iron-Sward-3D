@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 // The object will deactivate when a specific key is pressed.
 // The key can be customized in the inspector.
 
-public class KeyPressObject : TemporaryObject
+public class DeactivateBySpecificKeyObject : TemporaryObject
 {
     [SerializeField] InputAction keyToDeactivate;
 

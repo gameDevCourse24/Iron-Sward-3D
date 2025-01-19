@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 // A class that inherits from TemporaryObject. 
 // The object will deactivate when any key is pressed.
 
-public class AnyKeyObject : TemporaryObject
+public class DeactivateByAnyKeyObject : TemporaryObject
 {
     [SerializeField] private InputAction anyKeyAction;
 
