@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-
+//This script is used to destroy the object 'destroyObjects'  when the object 'destroyTriggerObject' is collided with this collider and the key 'destroyKey' is pressed.
+//If 'destroyThisColliderAlso' is true, then this collider also will be destroyed.
 [RequireComponent(typeof(Collider))]
 public class DestroyObjectByTriggerAndKey : MonoBehaviour
 {
