@@ -14,11 +14,10 @@ GameObject:
   - component: {fileID: 5956390333058295125}
   - component: {fileID: 8719830677713626623}
   - component: {fileID: -6382845731810985756}
-  - component: {fileID: 5378206798500639977}
   - component: {fileID: 4660170694488129367}
   m_Layer: 0
   m_Name: Ball
-  m_TagString: Bullet
+  m_TagString: EnemyBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -33,7 +32,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -380.22647, y: 3.7385695, z: -218.48428}
-  m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
+  m_LocalScale: {x: 0.12, y: 0.12, z: 0.12}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -153,18 +152,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timerInSeconds: 5
   useMinutes: 0
---- !u!114 &5378206798500639977
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 800896727854159088}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8c5c3aaa6301d3458ab059d757768b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &4660170694488129367
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -178,4 +165,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroyObjectTags:
-  - Enemy
+  - Player

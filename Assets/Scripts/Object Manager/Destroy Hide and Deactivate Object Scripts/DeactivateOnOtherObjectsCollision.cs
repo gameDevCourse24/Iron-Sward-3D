@@ -24,7 +24,7 @@ public class DeactivateOnOtherObjectsCollision  : MonoBehaviour
         if (objectB == null || objectA == null)
             return;
 
-        // אם הם התנגשו זה בזה – מוחק את אובייקט א' (האובייקט שעליו הסקריפט)
+        // אם הם התנגשו זה בזה – מוחק את האובייקט שעליו הסקריפט
         if (CheckCollision(objectA, objectB))
         {
             Debug.Log($"{objectA.name} and {objectB.name} collided. Destroying {gameObject.name}");
