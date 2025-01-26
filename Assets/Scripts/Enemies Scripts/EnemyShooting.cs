@@ -22,38 +22,42 @@ public class EnemyShooting : MonoBehaviour
         // בדיקת מרחק
         float distanceToPlayer = Vector3.Distance(transform.position, target.position);
 
-        if (distanceToPlayer < detectionRange && Time.time >= nextFireTime) // אם השחקן בטווח וגם עבר זמן הירי הבא
+        if (distanceToPlayer < detectionRange) // אם המטרה בטווח האיתור
         {
-            // כיוון הקרן לשחקן
-            directionToTarget = (target.position - transform.position).normalized;
-
-            // שולח קרן שממשיכה לעבור דרך אובייקטים עם isTrigger = true
-            RaycastHit[] hits = Physics.RaycastAll(transform.position, directionToTarget, distanceToPlayer);
-
-            foreach (RaycastHit hit in hits)
+            if (Time.time >= nextFireTime) // אם עבר הזמן שהוגדר כזמן הירי הבא
             {
-                Debug.DrawRay(transform.position, directionToTarget * distanceToPlayer, Color.red, 0.1f);
-                // אם ה- Collider הוא isTrigger - תתעלם ממנו ותמשיך הלאה
-                if (hit.collider.isTrigger) continue;
+                // כיוון הקרן לשחקן
+                directionToTarget = (target.position - transform.position).normalized;
 
-                // אם הגענו לשחקן או לאחד האובייקטים שבתוך ההיררכיה שלו
-                if (IsPlayerOrChild(hit.collider.gameObject))
+                // שולח קרן שממשיכה לעבור דרך אובייקטים עם isTrigger = true
+                RaycastHit[] hits = Physics.RaycastAll(transform.position, directionToTarget, distanceToPlayer);
+
+                foreach (RaycastHit hit in hits)
                 {
-                    Debug.Log("EnemyShooting: I can see the target, I can shoot!");
-                    if (target != null)
+                    Debug.DrawRay(transform.position, directionToTarget * distanceToPlayer, Color.red, 0.1f);
+                    // אם ה- Collider הוא isTrigger - תתעלם ממנו ותמשיך הלאה
+                    if (hit.collider.isTrigger) continue;
+
+                    // אם הגענו לשחקן או לאחד האובייקטים שבתוך ההיררכיה שלו
+                    if (IsPlayerOrChild(hit.collider.gameObject))
                     {
-                        firePoint.LookAt(target.position); // מסובב את נקודת הירי לכיוון השחקן
+                        Debug.Log("EnemyShooting: I can see the target, I can shoot!");
+                        if (target != null)
+                        {
+                            firePoint.LookAt(target.position); // מסובב את נקודת הירי לכיוון השחקן
+                        }
+                        Shoot();
+                        nextFireTime = Time.time + (1f / fireRate); // מחושב הזמן בו אפשר לירות שוב
+                        return; // יוצאים מהלולאה כדי למנוע ירי כפול
                     }
-                    Shoot();
-                    nextFireTime = Time.time + (1f / fireRate); // מחושב הזמן בו אפשר לירות שוב
-                    return; // יוצאים מהלולאה כדי למנוע ירי כפול
-                }
-                else
-                {
-                    Debug.Log("EnemyShooting: I cant see the target, " + hit.collider.gameObject.name + " is in the way");
-                    return; // אם פגענו במשהו שאינו השחקן, הקרן נעצרת כאן
+                    else
+                    {
+                        Debug.Log("EnemyShooting: I cant see the target, " + hit.collider.gameObject.name + " is in the way");
+                        return; // אם פגענו במשהו שאינו השחקן, הקרן נעצרת כאן
+                    }
                 }
             }
+            
         }
         else
         {

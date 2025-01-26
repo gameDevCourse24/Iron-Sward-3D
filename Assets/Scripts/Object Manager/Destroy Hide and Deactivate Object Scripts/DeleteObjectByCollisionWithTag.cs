@@ -32,6 +32,7 @@ public class DeleteObjectByCollisionWithTag : MonoBehaviour
             if (destroyObjectTags.Contains(hitObject.tag)) 
             {
                 objectToDestroy = current.gameObject; // כדי שנוכל למחוק את האובייקט אב ולא את האובייקט בן (כמו הדמות וכו)
+                Debug.Log("find " + objectToDestroy.name);
                 return true; // אם זה המטרה - החזר true
             }
             current = current.parent; // המשך לבדוק כלפי מעלה בעץ האובייקטים
