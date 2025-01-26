@@ -14,7 +14,7 @@ public abstract class TemporaryObject : ObjectController
         if (pauseGameOnActivate)
         {
             Time.timeScale = 0f;
-            Debug.Log("Game paused.");
+            pprint.p("Game paused.", this);
         }
     }
 
@@ -23,12 +23,12 @@ public abstract class TemporaryObject : ObjectController
         if (objectToActivate != null)
         {
             objectToActivate.SetActive(false);
-            Debug.Log($"{objectToActivate.name} is now inactive.");
+            pprint.p($"{objectToActivate.name} is now inactive.", this);
 
             if (pauseGameOnActivate)
             {
                 Time.timeScale = 1f;
-                Debug.Log("Game resumed.");
+                pprint.p("Game resumed.", this);
             }
         }
     }

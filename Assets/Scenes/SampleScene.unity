@@ -2093,7 +2093,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &78338333
 Transform:
   m_ObjectHideFlags: 0
@@ -5698,7 +5698,7 @@ CapsuleCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.5
   m_Height: 2
@@ -19758,22 +19758,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3220310431894188066, guid: 5f25b6bdc7c16734189ac3dfba26e587, type: 3}
-      propertyPath: detectionRange
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 4196935844631953677, guid: 5f25b6bdc7c16734189ac3dfba26e587, type: 3}
-      propertyPath: m_StoppingDistance
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 7100966486444314570, guid: 5f25b6bdc7c16734189ac3dfba26e587, type: 3}
-      propertyPath: target
-      value: 
-      objectReference: {fileID: 937692489}
-    - target: {fileID: 7100966486444314570, guid: 5f25b6bdc7c16734189ac3dfba26e587, type: 3}
-      propertyPath: maxDetectionDistance
-      value: 60
-      objectReference: {fileID: 0}
     - target: {fileID: 7479936618702812690, guid: 5f25b6bdc7c16734189ac3dfba26e587, type: 3}
       propertyPath: m_LocalPosition.x
       value: -444.91156
@@ -28305,8 +28289,10 @@ GameObject:
   - component: {fileID: 937692496}
   - component: {fileID: 937692495}
   - component: {fileID: 937692499}
-  - component: {fileID: 937692500}
   - component: {fileID: 937692501}
+  - component: {fileID: 937692502}
+  - component: {fileID: 937692503}
+  - component: {fileID: 937692504}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -28560,22 +28546,6 @@ MonoBehaviour:
       m_Action: Toggle Cursor
       m_Flags: 0
     m_Flags: 0
---- !u!114 &937692500
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 937692489}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f62f534eadf0d7441a4e7df8e2e52db5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  textComponent: {fileID: 478714314}
-  DataToAdd: -25
-  ObjectTags:
-  - EnemyBullet
 --- !u!114 &937692501
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28583,12 +28553,63 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 937692489}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1b88b6da47f9efe4bb28b51b49c6c1bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   destroyObjectTags:
+  - EnemyBullet
+--- !u!114 &937692502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 937692489}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8c5c3aaa6301d3458ab059d757768b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!136 &937692503
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 937692489}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 2.140777
+  m_Direction: 1
+  m_Center: {x: 0, y: -0.08307266, z: 0}
+--- !u!114 &937692504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 937692489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d51a96883967b14186a5ef9833be3f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textComponent: {fileID: 478714314}
+  DataToAdd: -25
+  ObjectTags:
   - EnemyBullet
 --- !u!1001 &943904933
 PrefabInstance:
@@ -35565,7 +35586,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1141178141
 Transform:
   m_ObjectHideFlags: 0

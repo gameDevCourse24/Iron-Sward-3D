@@ -18,7 +18,7 @@ public abstract class ObjectController : MonoBehaviour
         if (objectToActivate != null )
         {
             objectToActivate.SetActive(true);
-            Debug.Log($"{objectToActivate.name} is now active.");
+            pprint.p($"{objectToActivate.name} is now active.", this);
         }
     }
 

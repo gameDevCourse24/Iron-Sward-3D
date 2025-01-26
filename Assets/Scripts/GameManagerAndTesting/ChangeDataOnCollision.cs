@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Linq;
 using TMPro;
 
-public class ChangeDataOnTrigger : MonoBehaviour
+public class ChangeDataOnCollision : MonoBehaviour
 {
     [SerializeField, Tooltip("Drag the TMP_Text component from your Canvas here.")]
     private TMP_Text textComponent;
@@ -24,7 +24,7 @@ public class ChangeDataOnTrigger : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision other)
     {
         if (textComponent == null || ObjectTags.Length == 0)
         {

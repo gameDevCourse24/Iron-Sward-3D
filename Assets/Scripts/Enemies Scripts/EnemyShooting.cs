@@ -19,6 +19,14 @@ public class EnemyShooting : MonoBehaviour
 
     void Update()
     {
+        if (target == null){
+            Debug.Log("EnemyShooting: The target is null");
+            return;
+        }; // אם אין שחקן - יצא מהפונקציה
+        if (transform == null){
+            Debug.Log("EnemyShooting: The enemy is null");
+            return;
+        }; // אם אין אויב - יצא מהפונקציה
         // בדיקת מרחק
         float distanceToPlayer = Vector3.Distance(transform.position, target.position);
 
@@ -41,7 +49,7 @@ public class EnemyShooting : MonoBehaviour
                     // אם הגענו לשחקן או לאחד האובייקטים שבתוך ההיררכיה שלו
                     if (IsPlayerOrChild(hit.collider.gameObject))
                     {
-                        Debug.Log("EnemyShooting: I can see the target, I can shoot!");
+                        // Debug.Log("EnemyShooting: I can see the target, I can shoot!");
                         if (target != null)
                         {
                             firePoint.LookAt(target.position); // מסובב את נקודת הירי לכיוון השחקן
@@ -52,7 +60,7 @@ public class EnemyShooting : MonoBehaviour
                     }
                     else
                     {
-                        Debug.Log("EnemyShooting: I cant see the target, " + hit.collider.gameObject.name + " is in the way");
+                        // Debug.Log("EnemyShooting: I cant see the target, " + hit.collider.gameObject.name + " is in the way");
                         return; // אם פגענו במשהו שאינו השחקן, הקרן נעצרת כאן
                     }
                 }
@@ -61,13 +69,13 @@ public class EnemyShooting : MonoBehaviour
         }
         else
         {
-            Debug.Log("EnemyShooting: The target is out of range");
+            // Debug.Log("EnemyShooting: The target is out of range");
         }
     }
 
     void Shoot()
     {
-        Debug.Log("EnemyShooting: I shoot on the target!");
+        // Debug.Log("EnemyShooting: I shoot on the target!");
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         Rigidbody rb = bullet.GetComponent<Rigidbody>();
         if (rb != null)

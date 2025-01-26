@@ -2,6 +2,8 @@ using UnityEngine;
 using System.Linq;
 
 [RequireComponent(typeof(Collider))]
+
+// This script is used to destroy this object when it is triggered by an other object with a specific tag.
 public class DeleteObjectByTriggerWithTag : MonoBehaviour
 {
     [SerializeField, Tooltip("The object will be destroyed when triggered by an object with one of these tags.")]
@@ -9,7 +11,7 @@ public class DeleteObjectByTriggerWithTag : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log($"{gameObject.name} detected trigger with {other.gameObject.name} (Tag: {other.gameObject.tag})");
+        pprint.p($"{gameObject.name} detected trigger with {other.gameObject.name} (Tag: {other.gameObject.tag})", this);
 
         if (destroyObjectTags == null || destroyObjectTags.Length == 0) return;
 
@@ -21,7 +23,7 @@ public class DeleteObjectByTriggerWithTag : MonoBehaviour
 
     private void ActOnCollision(GameObject otherObject)
     {
-        Debug.Log($"{gameObject.name} destroyed because it was triggered by {otherObject.name}");
+        pprint.p($"{gameObject.name} destroyed because it was triggered by {otherObject.name}", this);
         Destroy(gameObject);  // משמיד את האובייקט שעליו הסקריפט נמצא
     }
 }

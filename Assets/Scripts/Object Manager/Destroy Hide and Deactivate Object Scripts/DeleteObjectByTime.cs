@@ -1,6 +1,6 @@
 using Unity.VisualScripting;
 using UnityEngine;
-//this code will delete an object after the time that you decide
+//this code will delete this object after the time that you decide
 public class DeleteObjectByTime : MonoBehaviour
 {
     
@@ -8,6 +8,7 @@ public class DeleteObjectByTime : MonoBehaviour
     float timerInSeconds = 5f;
     [SerializeField, Tooltip("Change the units to minutes?")]
     private bool useMinutes = false;
+    public bool printMessage = true;
 
     void Start()
     {
@@ -24,11 +25,18 @@ public class DeleteObjectByTime : MonoBehaviour
         {
         // מוחק את האובייקט
             Destroy(gameObject);
-            Debug.Log(gameObject.name + "deleted");
+            pprint.p(gameObject.name + "deleted by time", this);
         }
         else
         {
-            Debug.LogWarning("The object is already deleted");
+            pprint.p("The object is already deleted", this);
         }
     }
+    // public void print(string message)
+    // {
+    //     if (printMessage)
+    //     {
+    //         Debug.Log("DeleteObjectByTime - " + message);
+    //     }
+    // }
 }

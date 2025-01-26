@@ -53,7 +53,7 @@ public class Chaser: MonoBehaviour {
     private bool canChase() {
         float distanceToPlayer = Vector3.Distance(transform.position, target.transform.position);
         //distance to the target < maxDetectionDistance
-        Debug.Log("chaser: distance to target is:" + distanceToPlayer);
+       pprint.p("distance to target is:" + distanceToPlayer, this);
         
         if (distanceToPlayer < maxDetectionDistance) {
             if (!alreadyDetected) {

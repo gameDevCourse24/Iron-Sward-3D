@@ -10,6 +10,8 @@ public class BulletClickSpawner : MonoBehaviour
     private InputAction clickAction; // פעולה לזיהוי לחיצה
     [SerializeField, Tooltip("The maximum distance of the ray")]
     private float maxRayDistance = 50f; // מרחק הקרן
+
+    public bool PrintLog = true;
     private void OnEnable()
     {
         clickAction.Enable();
@@ -27,7 +29,7 @@ public class BulletClickSpawner : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (clickAction.triggered)
         {
@@ -36,7 +38,7 @@ public class BulletClickSpawner : MonoBehaviour
     }
      private void ShootBullet()
     {
-        print("ShootBullet function");
+        pprint.p("ShootBullet function", this);
         Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
         Vector3 targetPoint;
         if (Physics.Raycast(ray, out RaycastHit hitInfo, Mathf.Infinity))
@@ -61,10 +63,13 @@ public class BulletClickSpawner : MonoBehaviour
         {
             rb.linearVelocity = direction * objectSpeed;
         }
-        print("Bullet created");
+        pprint.p("Bullet created", this);
     }
     void print(string message)
     {
-        Debug.Log(message);
+        if (PrintLog)
+        {
+            Debug.Log(message);
+        }
     }
 }
