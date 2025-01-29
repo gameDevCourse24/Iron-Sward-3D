@@ -33,6 +33,9 @@ public class Chaser: MonoBehaviour {
 
     void OnValidate()
     {
+        
+    }
+    private void Start() {
         if (target == null)
         {
             target = GameObject.Find(targetName);
@@ -41,15 +44,13 @@ public class Chaser: MonoBehaviour {
                 Debug.LogWarning("Chaser: The target object is not found");
             }
         }
-    }
-    private void Start() {
         navMeshAgent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
     }
 
     private void Update() {
+        targetPosition = target.transform.position;
         if (canChase()){
-            targetPosition = target.transform.position;
             pprint.p("target position is:" + targetPosition, this);
             Facetarget();
             navMeshAgent.destination = targetPosition;
