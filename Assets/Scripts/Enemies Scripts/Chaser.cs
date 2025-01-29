@@ -36,6 +36,10 @@ public class Chaser: MonoBehaviour {
         if (target == null)
         {
             target = GameObject.Find(targetName);
+            if (target == null)
+            {
+                Debug.LogWarning("Chaser: The target object is not found");
+            }
         }
     }
     private void Start() {
@@ -46,12 +50,14 @@ public class Chaser: MonoBehaviour {
     private void Update() {
         if (canChase()){
             targetPosition = target.transform.position;
+            pprint.p("target position is:" + targetPosition, this);
             Facetarget();
             navMeshAgent.destination = targetPosition;
+            pprint.p("chasing target", this);
         }
     }
     private bool canChase() {
-        float distanceToPlayer = Vector3.Distance(transform.position, target.transform.position);
+        float distanceToPlayer = Vector3.Distance(transform.position, targetPosition);
         //distance to the target < maxDetectionDistance
        pprint.p("distance to target is:" + distanceToPlayer, this);
         
