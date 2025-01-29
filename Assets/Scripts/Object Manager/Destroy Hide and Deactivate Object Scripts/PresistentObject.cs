@@ -8,6 +8,6 @@ public class PersistentObject : ObjectController
     public override void Activate()
     {
         base.Activate();
-        Debug.Log("The object will remain active for the entire game.");
+        pprint.p("The object will remain active for the entire game.");
     }
 }
