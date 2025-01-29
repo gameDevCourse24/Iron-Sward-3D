@@ -14,7 +14,7 @@ public class DeactivateOnOtherObjectsCollision  : MonoBehaviour
     {
         if (objectB == null || objectA == null)
         {
-            Debug.LogError("Please assign Object B and Object C in the inspector.", this);
+            pprint.p("Please assign Object B and Object C in the inspector.", this);
         }
     }
 
@@ -39,7 +39,7 @@ public class DeactivateOnOtherObjectsCollision  : MonoBehaviour
 
         if (col1 == null || col2 == null)
         {
-            Debug.LogWarning("One or both objects do not have a Collider component!");
+            pprint.p("One or both objects do not have a Collider component!", this);
             return false;
         }
 
