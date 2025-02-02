@@ -59,12 +59,21 @@ public class MinimapIcon : MonoBehaviour
     {
         if (minimapIconInstance != null && minimapCamera != null)
         {
-            // המרת מיקום העולם למיקום ב-Viewport של מצלמת המיני-מפה
-            Vector3 viewportPos = minimapCamera.WorldToViewportPoint(transform.position);
+            if (IsVisibleToMinimap())
+            {
+                // המרת מיקום העולם למיקום ב-Viewport של מצלמת המיני-מפה
+                Vector3 viewportPos = minimapCamera.WorldToViewportPoint(transform.position);
+            
 
-            // המרת ה-Viewport ל-UI
-            RectTransform rectTransform = minimapIconInstance.GetComponent<RectTransform>();
-            rectTransform.anchorMin = rectTransform.anchorMax = viewportPos;
+                // המרת ה-Viewport ל-UI
+                RectTransform rectTransform = minimapIconInstance.GetComponent<RectTransform>();
+                rectTransform.anchorMin = rectTransform.anchorMax = viewportPos;
+                minimapIconInstance.enabled = true;
+            }
+            else
+            {
+                minimapIconInstance.enabled = false;
+            }
         }
     }
 
@@ -74,6 +83,11 @@ public class MinimapIcon : MonoBehaviour
         {
             Destroy(minimapIconInstance.gameObject); // השמדת האייקון כאשר האובייקט נהרס
         }
+    }
+
+    private bool IsVisibleToMinimap()
+    {
+        return (minimapCamera.cullingMask & (1 << gameObject.layer)) != 0;
     }
 }
 

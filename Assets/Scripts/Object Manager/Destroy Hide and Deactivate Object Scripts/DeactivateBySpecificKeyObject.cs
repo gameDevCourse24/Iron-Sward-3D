@@ -6,7 +6,8 @@ using UnityEngine.InputSystem;
 
 public class DeactivateBySpecificKeyObject : TemporaryObject
 {
-    [SerializeField] InputAction keyToDeactivate;
+    [SerializeField, Tooltip("The key that Deactivate the object")] InputAction keyToDeactivate;
+     
 
     private void OnEnable()
     {

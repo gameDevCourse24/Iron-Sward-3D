@@ -4,6 +4,7 @@ using UnityEngine;
 
 public abstract class TemporaryObject : ObjectController
 {
+    [SerializeField, Tooltip("Do you want to delete this object on collition exit?")] private bool deleteAfter = false;
     [Header("Game Control")]
     [SerializeField] private bool pauseGameOnActivate = false;
 
@@ -30,6 +31,20 @@ public abstract class TemporaryObject : ObjectController
                 Time.timeScale = 1f;
                 pprint.p("Game resumed.", this);
             }
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (deleteAfter && other.gameObject == triggeringObject)
+        {
+            Destroy(gameObject);
+        }
+    }
+    private void OnCollisionExit(Collision other)
+    {
+        if (deleteAfter && other.gameObject == triggeringObject)
+        {
+            Destroy(gameObject);
         }
     }
 }

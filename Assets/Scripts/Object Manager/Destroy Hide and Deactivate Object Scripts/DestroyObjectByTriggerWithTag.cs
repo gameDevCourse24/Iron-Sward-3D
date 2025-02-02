@@ -4,7 +4,7 @@ using System.Linq;
 [RequireComponent(typeof(Collider))]
 
 // This script is used to destroy this object when it is triggered by an other object with a specific tag.
-public class DeleteObjectByTriggerWithTag : MonoBehaviour
+public class DestroyObjectByTriggerWithTag : MonoBehaviour
 {
     [SerializeField, Tooltip("The object will be destroyed when triggered by an object with one of these tags.")]
     private string[] destroyObjectTags;
