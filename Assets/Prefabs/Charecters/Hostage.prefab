@@ -15,9 +15,10 @@ GameObject:
   - component: {fileID: 6309883612306650797}
   - component: {fileID: 3196601402113631631}
   - component: {fileID: 3106641601722639363}
+  - component: {fileID: -3523641959996206305}
   m_Layer: 0
   m_Name: Hostage
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -179,3 +180,18 @@ MonoBehaviour:
   maxDetectionDistance: 10
   increaseDetectionDistance: 20
   targetPosition: {x: 0, y: 0, z: 0}
+--- !u!114 &-3523641959996206305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4021824202999872949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35011cede71656543a1634641d2b432f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minimapCameraName: miniMapCamera
+  minimapCanvasName: MiniMapUI
+  minimapIconPrefab: {fileID: 6919380211146874004, guid: d4bc3bd000cfa1946a5fcedd199efc5f, type: 3}

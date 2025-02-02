@@ -16,6 +16,9 @@ TagManager:
   - UI
   - Terrain
   - Player
+  - level1
+  - level2
+  - level3
   - 
   - 
   - 
@@ -24,12 +27,9 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - level1Hostages
+  - level2Hostages
+  - level3Hostages
   - 
   - 
   - 

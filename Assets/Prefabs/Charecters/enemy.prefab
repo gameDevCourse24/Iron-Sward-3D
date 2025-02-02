@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 6057455559761344538}
   - component: {fileID: 6766007174835106308}
   - component: {fileID: 3220310431894188066}
+  - component: {fileID: 6451627145220203023}
   m_Layer: 0
   m_Name: enemy
   m_TagString: Enemy
@@ -230,6 +231,21 @@ MonoBehaviour:
   objectSpeed: 90
   firePoint: {fileID: 7904692835380214132}
   fireRate: 2
+--- !u!114 &6451627145220203023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2807455333376171380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35011cede71656543a1634641d2b432f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minimapCameraName: miniMapCamera
+  minimapCanvasName: MiniMapUI
+  minimapIconPrefab: {fileID: 8115128492434439049, guid: 7b48272a6e0af4e4e8376852bc853bb9, type: 3}
 --- !u!1 &3666469874510707506
 GameObject:
   m_ObjectHideFlags: 0
