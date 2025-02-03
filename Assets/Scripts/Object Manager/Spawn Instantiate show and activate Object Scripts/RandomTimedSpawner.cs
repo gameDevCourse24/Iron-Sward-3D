@@ -8,6 +8,8 @@ public class RandomTimedSpawner : TimedSpawner
     [SerializeField, Tooltip("Maximum spawn interval")]
     private float maxInterval = 90f;
 
+    [SerializeField, Tooltip("The maximum number of objects to spawn")]
+    private float numberOfObjectsToSpawn = 5;
     private void Start()
     {
         ResetTimer();
@@ -20,12 +22,15 @@ public class RandomTimedSpawner : TimedSpawner
 
     private void Update()
     {
-        timer += Time.deltaTime;
-        if (timer >= spawnInterval)
-        {
-            SpawnObject();
-            timer = 0f;
-            ResetTimer();
+        if (numberOfObjectsToSpawn >= 1){
+            timer += Time.deltaTime;
+            if (timer >= spawnInterval)
+            {
+                SpawnObject();
+                numberOfObjectsToSpawn--;
+                timer = 0f;
+                ResetTimer();
+            }
         }
     }
 }

@@ -360,9 +360,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetName: Player
   ChaserRotationSpeed: 20
-  maxDetectionDistance: 60
+  maxDetectionDistance: 30
   increaseDetectionDistance: 0
+  wanderRadius: 20
   targetPosition: {x: 0, y: 0, z: 0}
+  randomTargetPosition: {x: 0, y: 0, z: 0}
+  distanceToRandomTarget: 0
 --- !u!114 &3220310431894188066
 MonoBehaviour:
   m_ObjectHideFlags: 0

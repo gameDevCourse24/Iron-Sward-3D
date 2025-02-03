@@ -4,6 +4,7 @@ public class TimedSpawner : ObjectSpawner
 {
     [SerializeField, Tooltip("Time interval for spawning")]
     protected float spawnInterval = 5f; // מרווח הזמן בין יצירות
+    
 
     protected float timer;
 

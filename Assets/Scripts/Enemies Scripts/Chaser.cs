@@ -23,10 +23,14 @@ public class Chaser: MonoBehaviour {
     [SerializeField, Tooltip("After the chaser detects the target once, the 'maxDetectionDistance' will be incresed by this value")]
     private float increaseDetectionDistance = 0f;
 
+    [SerializeField, Tooltip("The maximum distance the chaser can wander around while can't chasing the target")]
+    private float wanderRadius = 30f; // מרחק מירבי לכל יעד אקראי
     private bool alreadyDetected = false;
 
     [Header("These fields are for display only")]
     [SerializeField] private Vector3 targetPosition;
+    [SerializeField] private Vector3 randomTargetPosition;
+    [SerializeField] private float distanceToRandomTarget;
 
     private Animator animator;
     private NavMeshAgent navMeshAgent;
@@ -41,24 +45,34 @@ public class Chaser: MonoBehaviour {
             }
         }
         navMeshAgent = GetComponent<NavMeshAgent>();
+        randomTargetPosition = transform.position;
         animator = GetComponent<Animator>();
     }
 
     private void Update() {
-        targetPosition = target.transform.position;
+        if (target != null)
+        {
+            targetPosition = target.transform.position;
+        }
         if (canChase()){
             // pprint.p("target position is:" + targetPosition, this);
             Facetarget();
             navMeshAgent.destination = targetPosition;
+            randomTargetPosition = transform.position;
             // pprint.p("chasing target", this);
+        }
+        else
+        {
+            WanderAround();
+            pprint.p("wandering around", this);
         }
     }
     private bool canChase() {
-        float distanceToPlayer = Vector3.Distance(transform.position, targetPosition);
+        float distanceToTarget = Vector3.Distance(transform.position, targetPosition);
         //distance to the target < maxDetectionDistance
     //    pprint.p("distance to target is:" + distanceToPlayer, this);
         
-        if (distanceToPlayer < maxDetectionDistance) {
+        if (distanceToTarget < maxDetectionDistance) {
             if (!alreadyDetected) {
                 maxDetectionDistance += increaseDetectionDistance;
                 alreadyDetected = true;
@@ -73,6 +87,43 @@ public class Chaser: MonoBehaviour {
         // transform.rotation = lookRotation;
         transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * ChaserRotationSpeed);
     }
+
+    private void WanderAround()
+    {
+        distanceToRandomTarget = Vector3.Distance(transform.position, randomTargetPosition);
+        // אם הרודף הגיע ליעד הנוכחי, נבחר יעד חדש
+        if (distanceToRandomTarget <= navMeshAgent.stoppingDistance + 1)
+        {
+            SetRandomDestination();
+        }
+        else
+        {
+            navMeshAgent.destination = randomTargetPosition;
+        }
+    }
+
+    private void SetRandomDestination()
+    {
+        while (true) // לולאה אינסופית עד שמוצאים יעד תקף
+        {
+            Vector3 randomDirection = UnityEngine.Random.insideUnitSphere * wanderRadius;
+            randomDirection += transform.position; // הזזת הנקודה למיקום יחסית לרודף
+
+            if (NavMesh.SamplePosition(randomDirection, out NavMeshHit randomTarget, wanderRadius, NavMesh.AllAreas))
+            {
+                NavMeshPath path = new NavMeshPath();
+                navMeshAgent.CalculatePath(randomTarget.position, path);
+
+                if (path.status == NavMeshPathStatus.PathComplete) // אם הנתיב חוקי
+                {
+                    randomTargetPosition = randomTarget.position;
+                    navMeshAgent.SetDestination(randomTargetPosition);
+                    return; // יציאה מהלולאה לאחר שמצאנו יעד תקף
+                }
+            }
+        }
+    }
+
 
     // internal Vector3 TargetObjectPosition() {
     //     return target.transform.position;

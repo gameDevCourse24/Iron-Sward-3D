@@ -179,7 +179,10 @@ MonoBehaviour:
   ChaserRotationSpeed: 20
   maxDetectionDistance: 10
   increaseDetectionDistance: 20
+  wanderRadius: 0
   targetPosition: {x: 0, y: 0, z: 0}
+  randomTargetPosition: {x: 0, y: 0, z: 0}
+  distanceToRandomTarget: 0
 --- !u!114 &-3523641959996206305
 MonoBehaviour:
   m_ObjectHideFlags: 0
