@@ -13,7 +13,7 @@ public class DestroyObjectByTriggerWithTag : MonoBehaviour
     {
         pprint.p($"{gameObject.name} detected trigger with {other.gameObject.name} (Tag: {other.gameObject.tag})", this);
 
-        if (destroyObjectTags == null || destroyObjectTags.Length == 0) return;
+        if (destroyObjectTags == null) return;
 
         if (destroyObjectTags.Contains(other.gameObject.tag))
         {

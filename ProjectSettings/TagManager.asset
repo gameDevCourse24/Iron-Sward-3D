@@ -9,6 +9,7 @@ TagManager:
   - EnemyBullet
   - Hostage
   - L1FinishLine
+  - wall
   layers:
   - Default
   - TransparentFX

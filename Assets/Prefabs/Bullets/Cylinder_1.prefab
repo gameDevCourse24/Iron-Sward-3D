@@ -235,8 +235,8 @@ GameObject:
   - component: {fileID: 780476204213204137}
   - component: {fileID: -5171840328465665151}
   - component: {fileID: -5611418024873994667}
-  - component: {fileID: 3751137801935996391}
   - component: {fileID: 1461184276697728126}
+  - component: {fileID: -3667128243950933024}
   m_Layer: 0
   m_Name: Cylinder_1
   m_TagString: Bullet
@@ -377,20 +377,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timerInSeconds: 5
   useMinutes: 0
---- !u!114 &3751137801935996391
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5487761662994700995}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 07daa6bb860ad0046a92e8721a4c593c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  destroyObjectTags:
-  - Enemy
+  printMessage: 1
 --- !u!114 &1461184276697728126
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -398,8 +385,20 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5487761662994700995}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e8c5c3aaa6301d3458ab059d757768b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-3667128243950933024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5487761662994700995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f284024b884d95419bbf2750d453a3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

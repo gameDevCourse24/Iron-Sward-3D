@@ -31,10 +31,6 @@ public class Chaser: MonoBehaviour {
     private Animator animator;
     private NavMeshAgent navMeshAgent;
 
-    void OnValidate()
-    {
-        
-    }
     private void Start() {
         if (target == null)
         {
@@ -51,16 +47,16 @@ public class Chaser: MonoBehaviour {
     private void Update() {
         targetPosition = target.transform.position;
         if (canChase()){
-            pprint.p("target position is:" + targetPosition, this);
+            // pprint.p("target position is:" + targetPosition, this);
             Facetarget();
             navMeshAgent.destination = targetPosition;
-            pprint.p("chasing target", this);
+            // pprint.p("chasing target", this);
         }
     }
     private bool canChase() {
         float distanceToPlayer = Vector3.Distance(transform.position, targetPosition);
         //distance to the target < maxDetectionDistance
-       pprint.p("distance to target is:" + distanceToPlayer, this);
+    //    pprint.p("distance to target is:" + distanceToPlayer, this);
         
         if (distanceToPlayer < maxDetectionDistance) {
             if (!alreadyDetected) {

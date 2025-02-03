@@ -38,7 +38,7 @@ public class BulletClickSpawner : MonoBehaviour
     }
      private void ShootBullet()
     {
-        pprint.p("ShootBullet function", this);
+        // pprint.p("ShootBullet function", this);
         Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
         Vector3 targetPoint;
         if (Physics.Raycast(ray, out RaycastHit hitInfo, Mathf.Infinity))
@@ -63,7 +63,7 @@ public class BulletClickSpawner : MonoBehaviour
         {
             rb.linearVelocity = direction * objectSpeed;
         }
-        pprint.p("Bullet created", this);
+        // pprint.p("Bullet created", this);
     }
     void print(string message)
     {
