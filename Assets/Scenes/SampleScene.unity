@@ -27769,7 +27769,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d034deb768b40245ba856d50ee4a403, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkingSpeed: 60
+  walkingSpeed: 20
   runningSpeed: 12
   jumpHeight: 2
   gravity: 9.81
@@ -53421,8 +53421,8 @@ GameObject:
   - component: {fileID: 1693661273}
   - component: {fileID: 1693661276}
   - component: {fileID: 1693661277}
-  - component: {fileID: 1693661280}
   - component: {fileID: 1693661281}
+  - component: {fileID: 1693661280}
   m_Layer: 8
   m_Name: Start Location
   m_TagString: Untagged
