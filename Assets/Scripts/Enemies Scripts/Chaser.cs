@@ -63,8 +63,11 @@ public class Chaser: MonoBehaviour {
         }
         else
         {
-            WanderAround();
-            pprint.p("wandering around", this);
+            if (wanderRadius > 0)
+            {
+                WanderAround();
+                pprint.p("wandering around", this);
+            }
         }
     }
     private bool canChase() {

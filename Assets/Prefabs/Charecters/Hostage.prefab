@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 3196601402113631631}
   - component: {fileID: 3106641601722639363}
   - component: {fileID: -3523641959996206305}
+  - component: {fileID: 2332933927049928464}
   m_Layer: 0
   m_Name: Hostage
   m_TagString: Hostage
@@ -69,7 +70,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 30b667d64295bd645b314a899b366656, type: 2}
+  - {fileID: 2100000, guid: a8d9728a26734af4bb5be1aaba6bf052, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -177,8 +178,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetName: Player
   ChaserRotationSpeed: 20
-  maxDetectionDistance: 10
-  increaseDetectionDistance: 20
+  maxDetectionDistance: 15
+  increaseDetectionDistance: 30
   wanderRadius: 0
   targetPosition: {x: 0, y: 0, z: 0}
   randomTargetPosition: {x: 0, y: 0, z: 0}
@@ -198,3 +199,17 @@ MonoBehaviour:
   minimapCameraName: miniMapCamera
   minimapCanvasName: MiniMapUI
   minimapIconPrefab: {fileID: 6919380211146874004, guid: d4bc3bd000cfa1946a5fcedd199efc5f, type: 3}
+--- !u!114 &2332933927049928464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4021824202999872949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b88b6da47f9efe4bb28b51b49c6c1bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroyObjectTags:
+  - L1FinishLine
