@@ -15,6 +15,14 @@ public class UIResourceManager : MonoBehaviour
     private TextMeshProUGUI lifeText;
     [SerializeField, Tooltip("The text that displays the player's box magazines")]
     private TextMeshProUGUI boxMagazineText;
+    [SerializeField, Tooltip("The text that displays the hostages in this level")]
+    private TextMeshProUGUI hotagesInThisLevelText;
+
+    [SerializeField, Tooltip("The text that displays the hostages that you already saved")]
+    private TextMeshProUGUI hotagesSavedText;
+
+
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

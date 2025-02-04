@@ -24,12 +24,12 @@ TagManager:
   - level3
   - 
   - 
+  - level1FinishLocation
   - 
   - 
-  - 
-  - 
-  - 
-  - 
+  - level1Enemies
+  - level2Enemies
+  - level3Enemies
   - level1Hostages
   - level2Hostages
   - level3Hostages
