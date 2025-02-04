@@ -13,7 +13,7 @@ public class BulletClickSpawner : MonoBehaviour
     private float fireRate = 5f; // מספר כדורים לשנייה
     [SerializeField, Tooltip("The button that will trigger the action")]
     private InputAction clickAction; // פעולה לזיהוי לחיצה
-    [SerializeField, Tooltip("The maximum distance of the ray")]
+    [SerializeField, Tooltip("The maximum distance of the ray cast if it doesn't hit anything")]
     private float maxRayDistance = 50f; // מרחק הקרן
 
     private bool isFiring = false; // בודק אם הירי פעיל
