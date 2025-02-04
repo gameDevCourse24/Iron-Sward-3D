@@ -8,8 +8,6 @@ public class RandomTimedSpawner : TimedSpawner
     [SerializeField, Tooltip("Maximum spawn interval")]
     private float maxInterval = 90f;
 
-    
-
     [SerializeField, Tooltip("The maximum number of objects to spawn")]
     private float numberOfObjectsToSpawn = 5;
     private void Start()
