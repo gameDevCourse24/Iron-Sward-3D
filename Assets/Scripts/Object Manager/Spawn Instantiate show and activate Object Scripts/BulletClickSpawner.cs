@@ -1,15 +1,22 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections;
+
 public class BulletClickSpawner : MonoBehaviour
 {
     [SerializeField]
     private GameObject spawnObject;
     [SerializeField, Tooltip("The speed of the object")]
     private float objectSpeed = 80f; // מהירות הקליע
-    [SerializeField]
+
+    [SerializeField, Tooltip("Fire rate (bullets per second)")]
+    private float fireRate = 5f; // מספר כדורים לשנייה
+    [SerializeField, Tooltip("The button that will trigger the action")]
     private InputAction clickAction; // פעולה לזיהוי לחיצה
     [SerializeField, Tooltip("The maximum distance of the ray")]
     private float maxRayDistance = 50f; // מרחק הקרן
+
+    private bool isFiring = false; // בודק אם הירי פעיל
 
     public bool PrintLog = true;
     private void OnEnable()
@@ -31,10 +38,21 @@ public class BulletClickSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (clickAction.triggered)
+        if (clickAction.IsPressed() && !isFiring) // אם הלחצן נלחץ והירי לא פעיל
+        {
+            StartCoroutine(FireCoroutine());
+        }
+    }
+
+    private IEnumerator FireCoroutine()
+    {
+        isFiring = true;
+        while (clickAction.IsPressed()) // ירי מתמשך כל עוד הלחצן נלחץ
         {
             ShootBullet();
+            yield return new WaitForSeconds(1f / fireRate); // מחכה בהתאם לקצב האש
         }
+        isFiring = false; // מפסיק את הירי כאשר העכבר משוחרר
     }
      private void ShootBullet()
     {
