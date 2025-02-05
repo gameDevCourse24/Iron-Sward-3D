@@ -10,6 +10,7 @@ TagManager:
   - Hostage
   - L1FinishLine
   - wall
+  - FirstAID
   layers:
   - Default
   - TransparentFX
@@ -24,7 +25,7 @@ TagManager:
   - level3
   - 
   - 
-  - level1FinishLocation
+  - level2FinishLocation
   - 
   - 
   - level1Enemies

@@ -362,7 +362,7 @@ MonoBehaviour:
   ChaserRotationSpeed: 20
   maxDetectionDistance: 30
   increaseDetectionDistance: 0
-  ChanceToChaseOutOfRange: 0.4
+  ChanceToChaseOutOfRange: 0.2
   numberOfSeconds: 3
   wanderRadius: 20
   targetPosition: {x: 0, y: 0, z: 0}
@@ -414,7 +414,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textComponent: {fileID: 6318821138752698122}
-  DataToAdd: -30
+  DataToAdd: -40
   ObjectTags:
   - Bullet
 --- !u!114 &2252037972837840740
