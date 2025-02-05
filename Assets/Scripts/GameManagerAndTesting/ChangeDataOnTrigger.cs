@@ -8,6 +8,8 @@ public class ChangeDataOnTrigger : MonoBehaviour
     private TMP_Text textComponent;
     [SerializeField, Tooltip("How much to add to the data? (If you want to reduce - add a minus before the number)")]
     private float DataToAdd = 1;
+    public bool thereIsALimit = false;
+    public float limit = 100;
     [SerializeField, Tooltip("The tags that will trigger the text change")]
     private string[] ObjectTags;
 
@@ -16,6 +18,10 @@ public class ChangeDataOnTrigger : MonoBehaviour
         if (float.TryParse(textComponent.text, out float currentData))
         {
             currentData += DataToAdd;
+            if (thereIsALimit && currentData > limit)
+            {
+                currentData = limit;
+            }
             textComponent.text = currentData.ToString();
         }
         else
