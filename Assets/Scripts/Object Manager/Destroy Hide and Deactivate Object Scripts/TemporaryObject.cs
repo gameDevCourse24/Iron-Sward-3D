@@ -11,7 +11,7 @@ public abstract class TemporaryObject : ObjectController
     public override void Activate()
     {
         base.Activate();
-
+        pprint.p("Activating object", this);
         if (pauseGameOnActivate)
         {
             Time.timeScale = 0f;

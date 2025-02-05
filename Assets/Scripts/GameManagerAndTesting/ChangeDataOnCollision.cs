@@ -35,7 +35,7 @@ public class ChangeDataOnCollision : MonoBehaviour
             if (ObjectTags.Contains(other.gameObject.tag))
             {
                 Change();
-                pprint.p($"Text updated: Triggered by {other.gameObject.name}", this);
+                // pprint.p($"Text updated: Triggered by {other.gameObject.name}", this);
             }
         }
     }
