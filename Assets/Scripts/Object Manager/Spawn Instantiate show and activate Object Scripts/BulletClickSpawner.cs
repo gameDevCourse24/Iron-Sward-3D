@@ -20,7 +20,9 @@ public class BulletClickSpawner : MonoBehaviour
     [SerializeField, Tooltip("The button that will trigger the reloading")]
     private InputAction reloadAction; // פעולה לזיהוי לחיצה
     [SerializeField, Tooltip("The maximum distance of the ray cast if it doesn't hit anything")]
-    private float maxRayDistance = 50f; // מרחק הקרן
+    private float maxRayDistance = 50f; // מרחק הקרן כאשר אין פגיעה
+    [SerializeField, Tooltip("The bullet exit point")]
+    private Transform bulletExitPoint; // נקודת היציאה של הקליע
 
     [Header("UI update settings")]
     [SerializeField, Tooltip("Drag the TMP_Text component from your Canvas here.")]
@@ -132,10 +134,10 @@ public class BulletClickSpawner : MonoBehaviour
         }
 
         // מחשבים כיוון מהאובייקט הנוכחי לנקודת הפגיעה
-        Vector3 direction = (targetPoint - transform.position).normalized;
+        Vector3 direction = (targetPoint - bulletExitPoint.position).normalized;
 
         // יוצרים את הקליע
-        GameObject bullet = Instantiate(spawnObject, transform.position, Quaternion.identity);
+        GameObject bullet = Instantiate(spawnObject, bulletExitPoint.position, Quaternion.identity);
 
         // מוסיפים לו כוח
         Rigidbody rb = bullet.GetComponent<Rigidbody>();

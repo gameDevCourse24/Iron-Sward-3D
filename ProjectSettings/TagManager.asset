@@ -11,6 +11,7 @@ TagManager:
   - L1FinishLine
   - wall
   - FirstAID
+  - magazine
   layers:
   - Default
   - TransparentFX
