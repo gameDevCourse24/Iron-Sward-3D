@@ -3,7 +3,7 @@ using UnityEngine;
 public class ChangeMaterialToOtherObjectOnTrigger : MonoBehaviour
 {
     [SerializeField, Tooltip("I want to change the material of the object (insert the object here):")]
-        private GameObject objectToChangeMaterial;
+        private GameObject[] objectsToChangeMaterial;
 
     [SerializeField, Tooltip("To this material (Insert the new material for the object above):")]
         private Material newMaterial;
@@ -16,7 +16,10 @@ public class ChangeMaterialToOtherObjectOnTrigger : MonoBehaviour
     {
         if (other.gameObject == objectToTrigger)
         {
-            objectToChangeMaterial.GetComponent<Renderer>().material = newMaterial;
+            foreach (GameObject objectToChangeMaterial in objectsToChangeMaterial)
+            {
+                objectToChangeMaterial.GetComponent<Renderer>().material = newMaterial;
+            }
         }
     }
 }
