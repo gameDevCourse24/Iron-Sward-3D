@@ -10,6 +10,6 @@
 ## פלטפורמות
 המשחק מיועד לפלטפורמות המחשב האישי ובהמשך יפותח גם לקונסולות.
 ---
-[רכיבים רישמיים](https://github.com/gameDevCourse24/Iron-Sward-3D/blob/main/formal-elements.md)
-[רכיבים דרמטיים](https://github.com/gameDevCourse24/Iron-Sward-3D/blob/main/dramatic-elements.md)
-[תודות](https://github.com/gameDevCourse24/Iron-Sward-3D/blob/main/Copyright%20and%20Acknowledgements.pdf)
+[רכיבים רישמיים](https://github.com/gameDevCourse24/Iron-Sward-3D/blob/main/formal-elements.md)  
+[רכיבים דרמטיים](https://github.com/gameDevCourse24/Iron-Sward-3D/blob/main/dramatic-elements.md)  
+[תודות](https://github.com/gameDevCourse24/Iron-Sward-3D/blob/main/Copyright%20and%20Acknowledgements.pdf)  
