@@ -56,7 +56,7 @@ public class Chaser: MonoBehaviour {
             target = GameObject.Find(targetName);
             if (target == null)
             {
-                Debug.LogWarning("Chaser: The target object is not found");
+                // Debug.LogWarning("Chaser: The target object is not found");
             }
         }
         navMeshAgent = GetComponent<NavMeshAgent>();
@@ -100,9 +100,9 @@ public class Chaser: MonoBehaviour {
             }
             if (currentChanceToChaseOutOfRange != ChanceToChaseOutOfRange)
             {
-                pprint.p("can chase because the target in range, the currentChanceToChaseOutOfRange is:" + currentChanceToChaseOutOfRange, this);
+                // pprint.p("can chase because the target in range, the currentChanceToChaseOutOfRange is:" + currentChanceToChaseOutOfRange, this);
                 currentChanceToChaseOutOfRange = ChanceToChaseOutOfRange; //כדי שאם המטרה נכנסה לטווח אז הסיכוי לרדיפה יחזור להיוצ מה שהיה ולא יישאר 1
-                pprint.p("the currentChanceToChaseOutOfRange back to: " + currentChanceToChaseOutOfRange, this);
+                // pprint.p("the currentChanceToChaseOutOfRange back to: " + currentChanceToChaseOutOfRange, this);
             }
             
             return true;
@@ -112,35 +112,35 @@ public class Chaser: MonoBehaviour {
             //if the enemy can see the target (even if the target is far away) so there is a "ChanceToChaseOutOfRange" that the enemy will chase the target
             if (currentChanceToChaseOutOfRange <= 0)
             {
-                pprint.p("The chance of chasing is 0.", this);
+                // pprint.p("The chance of chasing is 0.", this);
                 return false;
             }
             if (!CanSeeTarget())
             {
-                pprint.p("I can't see the target.", this);
+                // pprint.p("I can't see the target.", this);
                 currentChanceToChaseOutOfRange = ChanceToChaseOutOfRange;
                 return false;
             }
             if (currentChanceToChaseOutOfRange >= 1)
             {
-                pprint.p("The chance of chasing is already 1.", this);
+                // pprint.p("The chance of chasing is already 1.", this);
                 return true;
             }
             
             float randomValue = UnityEngine.Random.value; //הגרלת מספר רנדומלי בין 0 ל1
-            pprint.p("random value is: " + randomValue + "and the currentChanceToChaseOutOfRange is:" + currentChanceToChaseOutOfRange, this);
+            // pprint.p("random value is: " + randomValue + "and the currentChanceToChaseOutOfRange is:" + currentChanceToChaseOutOfRange, this);
             if (randomValue < currentChanceToChaseOutOfRange) // אם המספר שהגרלתי קטן מהסיכוי לרדיפה אז הוא ירדוף
             {
                 currentChanceToChaseOutOfRange = 1; //כדי שהוא בטוח ימשיך לרדוף אחרי המטרה כל עוד הוא רואה אותה עד שיגיע לטווח רדיפה רגיל
-                pprint.p("can chase because the target is in sight, the currentChanceToChaseOutOfRange is: " + currentChanceToChaseOutOfRange, this);
+                // pprint.p("can chase because the target is in sight, the currentChanceToChaseOutOfRange is: " + currentChanceToChaseOutOfRange, this);
                 return true;
             }
             else //אם המספר שהגרלתי גדול מהסיכוי לרדיפה אז הוא לא ירדוף
             {
                 // אם הרודף ראה את המטרה ולא רדף (פעם אחת) אז הוא לא ינסה לרדוף אחרי במשך כמה שניות. כי אחרת גם אם הסיכוי הוא 0.0001 אז אחרי מספיק פריימים הוא ירדוף אחרי בכל מקרה
                 currentChanceToChaseOutOfRange = 0; // לא ירדוף אחרי המטרה אם היא לא בטווח למשך כמה שניות או עד שלא יראה אותה יותר או עד שיגיע לטווח רדיפה
-                pprint.p("can't chase because the random value is to low so the currentChanceToChaseOutOfRange is: " + currentChanceToChaseOutOfRange, this);
-                pprint.p("start wating: " + numberOfSeconds, this);
+                // pprint.p("can't chase because the random value is to low so the currentChanceToChaseOutOfRange is: " + currentChanceToChaseOutOfRange, this);
+                // pprint.p("start wating: " + numberOfSeconds, this);
                 StartCoroutine(ResetChaseChance()); // סופר שניות עד שהוא ינסה לרדוף שוב
                 return false;
             }
@@ -153,11 +153,11 @@ public class Chaser: MonoBehaviour {
         if (currentChanceToChaseOutOfRange != ChanceToChaseOutOfRange) // אם הם עדיין שונים עד שעבר הזמן
         {
             currentChanceToChaseOutOfRange = ChanceToChaseOutOfRange; // החזרת הסיכוי לרדוף למצבו המקורי
-            pprint.p("stop wating: " + numberOfSeconds, this);
+            // pprint.p("stop wating: " + numberOfSeconds, this);
         }
         else // רק בשביל דיבאגינג
         {
-            pprint.p("the currentChanceToChaseOutOfRange is already: " + ChanceToChaseOutOfRange, this);
+            // pprint.p("the currentChanceToChaseOutOfRange is already: " + ChanceToChaseOutOfRange, this);
         }
 
     }
@@ -186,7 +186,7 @@ public class Chaser: MonoBehaviour {
             // אם הקרן פגעה באובייקט אחר לפני המטרה, המטרה מוסתרת ואין קו ראייה ישיר
             else
             {
-                pprint.p("i see: "+ hit.collider.gameObject.name, this);
+                // pprint.p("i see: "+ hit.collider.gameObject.name, this);
                 return false;
             }
         }

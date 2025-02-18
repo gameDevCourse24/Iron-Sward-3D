@@ -8,15 +8,32 @@ public class ChangeDataOnTrigger : MonoBehaviour
     private TMP_Text textComponent;
     [SerializeField, Tooltip("How much to add to the data? (If you want to reduce - add a minus before the number)")]
     private float DataToAdd = 1;
-    public bool thereIsALimit = false;
-    public float limit = 100;
+
     [SerializeField, Tooltip("The tags that will trigger the text change")]
     private string[] ObjectTags;
+
+    [Header("Optional")]
+
+    [SerializeField, Tooltip("If you want to show the data chenge, drag the TMP_Text component here.")]
+    private TMP_Text UIelementToShow = null;
+    [SerializeField, Tooltip("How many seconds to display the panel?")]
+    private float panelDisplayTime = 1f;
+    [SerializeField, Tooltip("If you want to limit the data, set this to true and set the limit.")]
+    private bool thereIsALimit = false;
+     [SerializeField, Tooltip("what is the limit?")]
+    private float limit = 100;
+    
 
     private void Change()
     {
         if (float.TryParse(textComponent.text, out float currentData))
         {
+            if (UIelementToShow != null)
+            {
+                UIelementToShow.text = "+" + DataToAdd.ToString();
+                UIelementToShow.gameObject.SetActive(true);
+                Invoke("HidePanel", panelDisplayTime);
+            }
             currentData += DataToAdd;
             if (thereIsALimit && currentData > limit)
             {
@@ -44,5 +61,9 @@ public class ChangeDataOnTrigger : MonoBehaviour
                 pprint.p($"Text updated: Triggered by {other.gameObject.name}", this);
             }
         }
+    }
+    private void HidePanel()
+    {
+        UIelementToShow.gameObject.SetActive(false);
     }
 }

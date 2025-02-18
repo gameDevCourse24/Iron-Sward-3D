@@ -39,6 +39,8 @@ public class BulletClickSpawner : MonoBehaviour
 
     [SerializeField, Tooltip("How many bullets does each magazine contain?")]
     private float BulletInOneMagazines = 30;
+    [SerializeField, Tooltip("The Reload panel")]
+    private GameObject reloadPanel;
 
     private bool isReloading = false;
     private bool isFiring = false; // בודק אם הירי פעיל
@@ -77,29 +79,42 @@ public class BulletClickSpawner : MonoBehaviour
         numOfMagazines = BulletMagazines;
         numOfBulletsInUnusedMagazine = BulletInOneMagazines  * BulletMagazines;
         UpdateUI();
+        reloadPanel.SetActive(false);
     }
     // Update is called once per frame
     void Update()
     {
-        if ((numOfMagazines > 0 && !isReloading) && (reloadAction.IsPressed() || numOfBulletsInCurrentMagazine <= 0)) // אם אין כדורים במחסנית ויש עוד מחסניות או שהלחצן נלחץ
+        // pprint.p("numOfBulletsInUnusedMagazine: " + numOfBulletsInUnusedMagazine, this);
+        // pprint.p("numOfBulletsInUnusedMagazine by TMP: " + MagazineTextComponent.text, this);
+        // pprint.p("numOfBulletsInCurrentMagazine: " + numOfBulletsInCurrentMagazine, this);
+        numOfBulletsInUnusedMagazine = float.Parse(MagazineTextComponent.text);
+        //  pprint.p("numOfBulletsInUnusedMagazine 2 = " + numOfBulletsInUnusedMagazine, this);
+        // parseFromUITextToFloat(MagazineTextComponent, numOfBulletsInUnusedMagazine);
+        if (numOfBulletsInUnusedMagazine > 0 && !isReloading && numOfBulletsInCurrentMagazine < BulletInOneMagazines && (reloadAction.IsPressed() || numOfBulletsInCurrentMagazine <= 0)) // אם אין כדורים במחסנית ויש עוד מחסניות או שהלחצן נלחץ
         {
+            // pprint.p("line 89", this);
             StartCoroutine(ReloadCoroutine());
         }
         else if (shootAction.IsPressed() && !isFiring && !isReloading) // אם הלחצן נלחץ והירי לא פעיל
         {
+            // pprint.p("line 94", this);
             StartCoroutine(FireCoroutine());
         }
     }
 
     private IEnumerator ReloadCoroutine()
     {
+        
         isReloading = true;
+        reloadPanel.SetActive(true);
         yield return new WaitForSeconds(TimeToReload);
         numOfBulletsInUnusedMagazine += numOfBulletsInCurrentMagazine;
         numOfBulletsInCurrentMagazine = numOfBulletsInUnusedMagazine >  BulletInOneMagazines? BulletInOneMagazines : numOfBulletsInUnusedMagazine;
         numOfBulletsInUnusedMagazine -= numOfBulletsInCurrentMagazine;
         UpdateUI();
+        reloadPanel.SetActive(false);
         isReloading = false;
+        
     }
 
     private void UpdateUI()
@@ -149,7 +164,7 @@ public class BulletClickSpawner : MonoBehaviour
         }
         // pprint.p("Bullet created", this);
     }
-    private void parseFromUITextToFloat(TMP_Text textComponent, ref float value)
+    private void parseFromUITextToFloat(TMP_Text textComponent, float value)
     {
         if (float.TryParse(textComponent.text, out float currentData))
         {

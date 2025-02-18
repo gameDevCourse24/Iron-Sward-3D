@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8950534447378978556}
   - component: {fileID: 1054549730387898652}
   - component: {fileID: 3766024015427987105}
-  m_Layer: 16
+  m_Layer: 17
   m_Name: Sign
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -195,7 +195,7 @@ GameObject:
   - component: {fileID: 6451627145220203023}
   - component: {fileID: 837872107839564367}
   - component: {fileID: 2252037972837840740}
-  m_Layer: 16
+  m_Layer: 17
   m_Name: level2Enemies
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -444,7 +444,7 @@ GameObject:
   - component: {fileID: 1321941643193233171}
   - component: {fileID: 7915573451168828252}
   - component: {fileID: 6318821138752698122}
-  m_Layer: 16
+  m_Layer: 17
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -621,7 +621,7 @@ GameObject:
   - component: {fileID: 825603555981336696}
   - component: {fileID: 8778522470982229785}
   - component: {fileID: 2155297575478318748}
-  m_Layer: 16
+  m_Layer: 17
   m_Name: LeftEye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -726,7 +726,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4893848107427224259}
-  m_Layer: 16
+  m_Layer: 17
   m_Name: lifeText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -759,7 +759,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7904692835380214132}
-  m_Layer: 16
+  m_Layer: 17
   m_Name: Shooting Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -793,7 +793,7 @@ GameObject:
   - component: {fileID: 1246001325234995242}
   - component: {fileID: 5382621099930183872}
   - component: {fileID: 8767987987117864081}
-  m_Layer: 16
+  m_Layer: 17
   m_Name: RightEye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
